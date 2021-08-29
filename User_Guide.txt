@@ -1,19 +1,27 @@
 ======================USER GUID===============================
 
-Please down load code from Location GIT location: https://github.com/siddudamalla/MIcroSerrvicesApp.git
-I have implemented with micro serivice archtecure with API serivices
+Please down load code from GIT location: https://github.com/siddudamalla/WP_JavaAssignment.git
+
+I have implemented This Assignment with micro service architecture and Spring Boot with 2 API services
 
 1. UserService(UserService.zip) which is running on post : 9001
          a. Unzip
 		 b. import from eclipse as mavan project
-		 c. Select UserServiceApplication.java -> Run As -> Java Application
+		 c. Select UserServiceApplication.java -> Run As -> Java Application ->Up the UserService
 2. PostService(postservice.zip) which is running on post : 9002
          a. Unzip
 		 b. import from eclipse as mavan project
-		 c. Select PostserviceApplication.java -> Run As -> Java Application
+		 c. Select PostserviceApplication.java -> Run As -> Java Application ->Up the postservice
+		 
 3. I have called the PostService from UserService by using RestTemplate
 
-Please Use postman to execute below API endpont urls
+4. I have used Spring security with roles : MYADMIN and MYUSER
+
+ 5. I have used postman to execute below API endpont urls (Authorization type : Basic Auth)
+
+1. Create Users :- please refer below apiend pint(http://localhost:9001/users/save)  and Json request
+2. Create Posts :- please refer below api end pint(http://localhost:9002/posts/save)  and Json request
+3. Get All Users with related posts :- please refer below api end pint(http://localhost:9001/users/allusers
 
 
 ********************************************************
