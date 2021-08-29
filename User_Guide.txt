@@ -1,0 +1,290 @@
+======================USER GUID===============================
+
+Please down load code from Location GIT location: https://github.com/siddudamalla/MIcroSerrvicesApp.git
+I have implemented with micro serivice archtecure with API serivices
+
+1. UserService(UserService.zip) which is running on post : 9001
+         a. Unzip
+		 b. import from eclipse as mavan project
+		 c. Select UserServiceApplication.java -> Run As -> Java Application
+2. PostService(postservice.zip) which is running on post : 9002
+         a. Unzip
+		 b. import from eclipse as mavan project
+		 c. Select PostserviceApplication.java -> Run As -> Java Application
+3. I have called the PostService from UserService by using RestTemplate
+
+Please Use postman to execute below API endpont urls
+
+
+********************************************************
+•	GET - /users: Lists all users in the system with their personal information related posts 
+*******************************************************
+1. http://localhost:9001/users/allusers
+
+=======================================================
+   a. Credetials : MYADMIN/Admin123  and got successfully got Responce
+==================================================================
+{
+    "responseTemplate": [
+        {
+            "posts": [
+                {
+                    "id": 2,
+                    "message": "java_2",
+                    "name": "spring_2",
+                    "postBy": "kundan"
+                },
+                {
+                    "id": 3,
+                    "message": "java_21",
+                    "name": "spring_21",
+                    "postBy": "kundan"
+                }
+            ],
+            "user": {
+                "id": 1,
+                "firstName": "Kundand",
+                "lastName": "damalla",
+                "mailId": "Kundan@gmail.com",
+                "address": "batchupally11122",
+                "age": 23,
+                "postId": 14,
+                "postBy": "kundan"
+            }
+        },
+        {
+            "posts": [
+                {
+                    "id": 1,
+                    "message": "java_1",
+                    "name": "spring_1",
+                    "postBy": "siddu"
+                },
+                {
+                    "id": 4,
+                    "message": "java_212",
+                    "name": "spring_212",
+                    "postBy": "siddu"
+                }
+            ],
+            "user": {
+                "id": 2,
+                "firstName": "Siddud",
+                "lastName": "damalla",
+                "mailId": "Siddu@gmail.com",
+                "address": "batchupall22",
+                "age": 32,
+                "postId": 11,
+                "postBy": "siddu"
+            }
+        }
+    ]
+}
+=======================================================================
+   b. Credentials : MYUSER/User123  and got failed with below Responce
+====================================================================
+{
+    "timestamp": "2021-08-28T18:37:49.472+00:00",
+    "status": 403,
+    "error": "Forbidden",
+    "path": "/users/allusers"
+}
+*********************************************************************************
+Get all post information 
+********************************************************************************
+
+2. http://localhost:9002/posts/all
+
+=======================================================
+   a. Credentials : MYADMIN/Admin123  and got successfully got Responce
+==================================================================
+
+[
+    {
+        "id": 1,
+        "message": "java_1",
+        "name": "spring_1",
+        "postBy": "siddu"
+    },
+    {
+        "id": 2,
+        "message": "java_2",
+        "name": "spring_2",
+        "postBy": "kundan"
+    }
+]
+
+=================================================================
+	b. Credentials : MYUSER/User123  and got failed with below Responce
+===================================================================
+
+{
+    "timestamp": "2021-08-28T18:59:46.333+00:00",
+    "status": 403,
+    "error": "Forbidden",
+    "path": "/posts/all"
+}
+***********************************************************************
+•	POST - /posts: Creates a post for a user. 
+*******************************************************************
+
+3. http://localhost:9002/posts/save
+
+=======================================================
+   a. Credentials : MYADMIN/Admin123  and got successfully got Responce
+==================================================================
+
+Json Request 1 :-
+
+{
+    "message" : "java_1",
+    "name" : "spring_1",
+    "postBy" : "siddu"
+}
+Json Responce 1 :-
+{
+    "id": 1,
+    "message": "java_1",
+    "name": "spring_1",
+    "postBy": "siddu"
+}
+
+
+Json Request 2:-
+
+{
+    "message" : "java_2",
+    "name" : "spring_2",
+    "postBy" : "kundan"
+}
+
+Json Responce 2:-
+
+{
+    "id": 2,
+    "message": "java_2",
+    "name": "spring_2",
+    "postBy": "kundan"
+}
+=================================================================
+	b. Credentials : MYUSER/User123  and got failed with below Responce
+===================================================================
+
+{
+    "timestamp": "2021-08-28T18:59:46.333+00:00",
+    "status": 403,
+    "error": "Forbidden",
+    "path": "/posts/all"
+}
+
+*************************************************************************
+POST - /posts: Creates a user. 
+************************************************************************
+
+4. http://localhost:9001/users/save
+
+
+=================================================================
+	b. Credentials : MYUSER/User123 AND  MYADMIN/Admin123 and got below Responce
+===================================================================
+
+Request1 Json :-
+
+{
+    "firstName" : "Siddud",
+    "lastName" : "damalla",
+    "mailId" : "Siddu@gmail.com",
+    "address" : "batchupally11122",
+    "age" : "22",
+    "postId" : 16,
+    "postBy" : "siddu"
+}
+Responce1 Json :-
+{
+        "id": 1,
+        "firstName": "Kundand",
+        "lastName": "damalla",
+        "mailId": "Kundan@gmail.com",
+        "address": "batchupally21",
+        "age": 12,
+        "postId": 1,
+        "postBy": "kundan"
+    }
+	
+Request2 Json :-
+
+{
+    "firstName" : "Siddud",
+    "lastName" : "damalla",
+    "mailId" : "Siddu@gmail.com",
+    "address" : "batchupally11122",
+    "age" : "22",
+    "postId" : 16,
+    "postBy" : "siddu"
+}
+Responce2 Json :-
+{
+        "id": 2,
+        "firstName": "Siddud",
+        "lastName": "damalla",
+        "mailId": "Siddu@gmail.com",
+        "address": "batchupally21",
+        "age": 12,
+        "postId": 1,
+        "postBy": "siddu"
+    },
+*********************************************************************************
+Get all Users information only
+********************************************************************************
+
+5. http://localhost:9001/users/all
+
+====================================================================
+   a. Credentials : MYADMIN/Admin123  and got successfully got Responce
+=====================================================================
+[
+    {
+        "id": 1,
+        "firstName": "Kundand",
+        "lastName": "damalla",
+        "mailId": "Kundan@gmail.com",
+        "address": "batchupally11122",
+        "age": 23,
+        "postId": 14,
+        "postBy": "kundan"
+    },
+    {
+        "id": 2,
+        "firstName": "Siddud",
+        "lastName": "damalla",
+        "mailId": "Siddu@gmail.com",
+        "address": "batchupall22",
+        "age": 32,
+        "postId": 11,
+        "postBy": "siddu"
+    }
+]
+=================================================================
+	b. Credentials : MYUSER/User123  and got failed with below Responce
+===================================================================
+
+{
+    "timestamp": "2021-08-28T19:18:07.944+00:00",
+    "status": 403,
+    "error": "Forbidden",
+    "path": "/users/all"
+}
+
+===============Open issue=======================
+
+  1. Currently I am using "postBy" cloumn is common for both User and Post objects.
+  2. I am getting all posts for every user based on colun "postBy"
+  3. Now I am supporting for "postBy": "siddu" and "postBy": "kundan"
+  4. If we use any other we are getting exception "Un authorised path =/posts/postBy=xxxxxxx"
+  
+===============Work around==================================================================
+goto -> AppSecurityConfig.java from "postservice" API code
+
+and add url pattern @line :42 as shown below to permit authorization
+   
+  .antMatchers("/posts/postBy=siddu", "/posts/postBy=kundan").permitAll()
