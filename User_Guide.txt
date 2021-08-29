@@ -287,13 +287,13 @@ Get all Users information only
     "path": "/users/all"
 }
 
-===============Open issue=======================
+===============Open issue(Working on this issue)=======================
 
   1. Currently I am using "postBy" cloumn is common for both User and Post objects.
   2. I am getting all posts for every user based on column "postBy"
   3. Now I am supporting for "postBy": "siddu" and "postBy": "kundan"
   4. If we use any other we are getting exception "Un authorized  path =/posts/postBy=xxxxxxx"
-  
+  5. Junits Tests are in progress.
 ===============Work around==================================================================
 goto -> AppSecurityConfig.java from "postservice" API code
 
