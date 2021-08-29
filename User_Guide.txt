@@ -1,4 +1,5 @@
-======================USER GUID===============================
+======================USER GUID================================================================
+===============================================================================================
 
 Please down load code from GIT location: https://github.com/siddudamalla/WP_JavaAssignment.git
 
@@ -13,15 +14,18 @@ I have implemented This Assignment with micro service architecture and Spring Bo
 		 b. import from eclipse as mavan project
 		 c. Select PostserviceApplication.java -> Run As -> Java Application ->Up the postservice
 		 
-3. I have called the PostService from UserService by using RestTemplate
+3. I have called the PostService from UserService by using RestTemplate ('postBy' is common column used in both User and Post Objects)
 
-4. I have used Spring security with roles : MYADMIN and MYUSER
+4. I have used Spring security with roles : MYADMIN and MYUSER using InMemoryUserDetailsManager
 
- 5. I have used postman to execute below API endpont urls (Authorization type : Basic Auth)
+5. I have used H2 In Menory Data base dependency to store User and Post details.
 
-1. Create Users :- please refer below apiend pint(http://localhost:9001/users/save)  and Json request
-2. Create Posts :- please refer below api end pint(http://localhost:9002/posts/save)  and Json request
-3. Get All Users with related posts :- please refer below api end pint(http://localhost:9001/users/allusers
+6. I have used postman to execute below API endpont urls (Authorization type : Basic Auth)
+
+
+	a. Create Users :- please refer below apiend pint(http://localhost:9001/users/save)  and Json request
+	b. Create Posts :- please refer below api end pint(http://localhost:9002/posts/save)  and Json request
+	c. Get All Users with related posts :- please refer below api end pint(http://localhost:9001/users/allusers
 
 
 ********************************************************
@@ -29,8 +33,8 @@ I have implemented This Assignment with micro service architecture and Spring Bo
 *******************************************************
 1. http://localhost:9001/users/allusers
 
-=======================================================
-   a. Credetials : MYADMIN/Admin123  and got successfully got Responce
+===================================================================
+   a. Credetials : MYADMIN/Admin123  and got successfully got Response
 ==================================================================
 {
     "responseTemplate": [
@@ -89,7 +93,7 @@ I have implemented This Assignment with micro service architecture and Spring Bo
     ]
 }
 =======================================================================
-   b. Credentials : MYUSER/User123  and got failed with below Responce
+   b. Credentials : MYUSER/User123  and got failed with below Response
 ====================================================================
 {
     "timestamp": "2021-08-28T18:37:49.472+00:00",
@@ -104,7 +108,7 @@ Get all post information
 2. http://localhost:9002/posts/all
 
 =======================================================
-   a. Credentials : MYADMIN/Admin123  and got successfully got Responce
+   a. Credentials : MYADMIN/Admin123  and got successfully got Response
 ==================================================================
 
 [
@@ -123,7 +127,7 @@ Get all post information
 ]
 
 =================================================================
-	b. Credentials : MYUSER/User123  and got failed with below Responce
+	b. Credentials : MYUSER/User123  and got failed with below Response
 ===================================================================
 
 {
@@ -139,7 +143,7 @@ Get all post information
 3. http://localhost:9002/posts/save
 
 =======================================================
-   a. Credentials : MYADMIN/Admin123  and got successfully got Responce
+   a. Credentials : MYADMIN/Admin123  and got successfully got Response
 ==================================================================
 
 Json Request 1 :-
@@ -149,7 +153,7 @@ Json Request 1 :-
     "name" : "spring_1",
     "postBy" : "siddu"
 }
-Json Responce 1 :-
+Json Response 1 :-
 {
     "id": 1,
     "message": "java_1",
@@ -166,7 +170,7 @@ Json Request 2:-
     "postBy" : "kundan"
 }
 
-Json Responce 2:-
+Json Response 2:-
 
 {
     "id": 2,
@@ -175,7 +179,7 @@ Json Responce 2:-
     "postBy": "kundan"
 }
 =================================================================
-	b. Credentials : MYUSER/User123  and got failed with below Responce
+	b. Credentials : MYUSER/User123  and got failed with below Response
 ===================================================================
 
 {
@@ -193,7 +197,7 @@ POST - /posts: Creates a user.
 
 
 =================================================================
-	b. Credentials : MYUSER/User123 AND  MYADMIN/Admin123 and got below Responce
+	b. Credentials : MYUSER/User123 AND  MYADMIN/Admin123 and got below Response
 ===================================================================
 
 Request1 Json :-
@@ -230,7 +234,7 @@ Request2 Json :-
     "postId" : 16,
     "postBy" : "siddu"
 }
-Responce2 Json :-
+Response2 Json :-
 {
         "id": 2,
         "firstName": "Siddud",
@@ -248,7 +252,7 @@ Get all Users information only
 5. http://localhost:9001/users/all
 
 ====================================================================
-   a. Credentials : MYADMIN/Admin123  and got successfully got Responce
+   a. Credentials : MYADMIN/Admin123  and got successfully got Response
 =====================================================================
 [
     {
@@ -273,7 +277,7 @@ Get all Users information only
     }
 ]
 =================================================================
-	b. Credentials : MYUSER/User123  and got failed with below Responce
+	b. Credentials : MYUSER/User123  and got failed with below Response
 ===================================================================
 
 {
@@ -286,9 +290,9 @@ Get all Users information only
 ===============Open issue=======================
 
   1. Currently I am using "postBy" cloumn is common for both User and Post objects.
-  2. I am getting all posts for every user based on colun "postBy"
+  2. I am getting all posts for every user based on column "postBy"
   3. Now I am supporting for "postBy": "siddu" and "postBy": "kundan"
-  4. If we use any other we are getting exception "Un authorised path =/posts/postBy=xxxxxxx"
+  4. If we use any other we are getting exception "Un authorized  path =/posts/postBy=xxxxxxx"
   
 ===============Work around==================================================================
 goto -> AppSecurityConfig.java from "postservice" API code
