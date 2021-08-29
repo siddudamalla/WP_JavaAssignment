@@ -16,7 +16,7 @@ I have implemented This Assignment with micro service architecture and Spring Bo
 		 
 3. I have called the PostService from UserService by using RestTemplate ('postBy' is common column used in both User and Post Objects)
 
-4. I have used Spring security with roles : MYADMIN and MYUSER using InMemoryUserDetailsManager
+4. I have used Spring security with roles : MYADMIN and MYUSER using InMemoryUserDetailsManager with  Credentials : MYADMIN/Admin123 and MYUSER/User123
 
 5. I have used H2 In Menory Data base dependency to store User and Post details.
 
@@ -34,7 +34,7 @@ I have implemented This Assignment with micro service architecture and Spring Bo
 1. http://localhost:9001/users/allusers
 
 ===================================================================
-   a. Credetials : MYADMIN/Admin123  and got successfully got Response
+   a. Credentials : MYADMIN/Admin123  and got successfully got Response
 ==================================================================
 {
     "responseTemplate": [
