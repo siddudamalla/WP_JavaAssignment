@@ -18,7 +18,7 @@ I have implemented This Assignment with micro service architecture and Spring Bo
 
 4. I have used Spring security with roles : MYADMIN and MYUSER using InMemoryUserDetailsManager with  Credentials : MYADMIN/Admin123 and MYUSER/User123
 
-5. I have used H2 In Menory Data base dependency to store User and Post details.
+5. I have used H2 In Memory Database dependency to store User and Post details.
 
 6. I have used postman to execute below API endpont urls (Authorization type : Basic Auth)
 
