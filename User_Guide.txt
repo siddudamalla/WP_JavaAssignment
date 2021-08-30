@@ -7,11 +7,11 @@ I have implemented This Assignment with micro service architecture and Spring Bo
 
 1. UserService(UserService.zip) which is running on post : 9001
          a. Unzip
-		 b. import from eclipse as mavan project
+		 b. import from eclipse as maven project
 		 c. Select UserServiceApplication.java -> Run As -> Java Application ->Up the UserService
 2. PostService(postservice.zip) which is running on post : 9002
          a. Unzip
-		 b. import from eclipse as mavan project
+		 b. import from eclipse as maven project
 		 c. Select PostserviceApplication.java -> Run As -> Java Application ->Up the postservice
 		 
 3. I have called the PostService from UserService by using RestTemplate ('postBy' is common column used in both User and Post Objects)
